@@ -7,25 +7,25 @@ let score = JSON.parse(localStorage.getItem('score')) || {
 updateScore();
 
 
- const rockPick =  document.querySelector('.move-rock');
+ const rockPick =  document.querySelector('.move-shield');
  rockPick.addEventListener('click', () => {
-  getWinner('Rock');
+  getWinner('Shield');
  });
 
- const paperPick =  document.querySelector('.move-paper');
+ const paperPick =  document.querySelector('.move-grab');
  paperPick.addEventListener('click', () => {
-  getWinner('Paper');
+  getWinner('Grab');
  });
 
-const scissorsPick = document.querySelector('.move-scissors');
+const scissorsPick = document.querySelector('.move-attack');
 scissorsPick.addEventListener('click', () => {
-  getWinner('Scissors');
+  getWinner('Attack');
 })
 
 
 
 function getComputerChoice() {
-  const choices = ['Rock', 'Paper', 'Scissors'];
+  const choices = ['Shield', 'Grab', 'Attack'];
   const randomNumber = Math.floor(Math.random() * 3);
 return choices[randomNumber];
 };
@@ -40,30 +40,30 @@ function getWinner(playerChoice) {
 
   let result = '';
   
-  if (playerChoice === 'Rock') {
-    if (computerMove === 'Rock') {
+  if (playerChoice === 'Shield') {
+    if (computerMove === 'Shield') {
       result = 'Tie.';
-    } else if (computerMove === 'Paper') {
+    } else if (computerMove === 'Grab') {
       result = 'You lose.';
-    } else if (computerMove === 'Scissors') {
+    } else if (computerMove === 'Attack') {
       result = 'You win.';
     }
   } 
-  else if (playerChoice === 'Paper') {
-    if(computerMove === 'Rock') {
+  else if (playerChoice === 'Grab') {
+    if(computerMove === 'Shield') {
       result = 'You win.';
-    } else if (computerMove === 'Paper') {
+    } else if (computerMove === 'Grab') {
       result = 'Tie.';
-    } else if (computerMove === 'Scissors') {
+    } else if (computerMove === 'Attack') {
       result = 'You lose.';
     }
   }
-  else if (playerChoice ===  'Scissors') {
-    if (computerMove === 'Rock') {
+  else if (playerChoice ===  'Attack') {
+    if (computerMove === 'Shield') {
       result = 'You lose.';
-    } else if (computerMove === 'Paper') {
+    } else if (computerMove === 'Grab') {
       result = 'You win.';
-    } else if (computerMove === 'Scissors') {
+    } else if (computerMove === 'Attack') {
       result = 'Tie.';
     }
   }
@@ -79,10 +79,11 @@ function getWinner(playerChoice) {
   localStorage.setItem('score', JSON.stringify(score));
 
 
-  document.querySelector('.result-text').innerHTML = `You picked: ${playerChoice}, Computer picked: ${computerMove}, ${result}.`;
+  document.querySelector('.result-text').innerHTML = `You picked: <img src="/pics/${playerChoice}.png" class="move-result-picture"> , Computer picked: <img src="/pics/${computerMove}.png" class="move-result-picture">,  ${result}.`;
 
   updateScore();
 
+ 
 
 };
 
@@ -90,5 +91,7 @@ function getWinner(playerChoice) {
 
 
 function updateScore() {
-  document.querySelector('.result-score').innerHTML = `Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
+  document.querySelector('.result-score').innerHTML = `Wins: ${score.wins} |
+  Loses: ${score.loses} |
+   Ties: ${score.ties}`;
 }

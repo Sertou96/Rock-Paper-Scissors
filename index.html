@@ -2,19 +2,64 @@
 <html lang="en">
   <head>
    
-    <title>Rock-Paper-Scissors</title>
+    <title>Shield-Grab-Attack</title>
+    <link rel="stylesheet" href="rps2.css">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade:regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Notable:regular" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Sigmar+One:regular" rel="stylesheet" />
+    <style>
+   
+
+
+    </style>
   </head>
   <body>
-    <h1>Rock-Paper-Scissors</h1>
+    <div class="container"></div>
+ 
+    <h1>Shield-Grab-Attack</h1>
+
+
+    <div class="rules-box">
+
+    <h2>Rules</h2>
+
+    <p class="rules-paragraph">
+      <span style="color: blue;">Shield</span> beats <span style="color: red;">Attack</span>  
+      
+      | 
+
+      <span style="color: yellow">Grab</span> beats <span style="color: blue;">Shield</span> 
+      
+      | 
+      
+      <span style="color: red;">Attack</span>  beats <span style="color: yellow">Grab</span> 
+    </p>
+
+    </div>
 
     
-    <button class="move-rock">Rock</button>
-    <button class="move-paper">Paper</button>
-    <button class="move-scissors">Scissors</button>
-    
-    <p class="result-text"></p>
-    <p class="result-score"></p>
-    
+
+      <div class="move-pick-container">
+
+        <button class="move-shield"><img class="move-picture" src="/pics/Shield.png"></button>
+
+        <button class="move-grab"><img class="move-picture" src="/pics/Grab.png"></button>
+
+        <button class="move-attack"><img class="move-picture" src="/pics/Attack.png"></button>
+
+      </div>
+
+      <div class="result-container">
+        <div class="result-text-div">
+        <p class="result-text result-color"></p>
+        </div>
+        <div class="result-score-div">
+        <p class="result-score score-color"></p>
+        </div>
+       </div>
+
+    <div class="reset-div">
+      <p class="reset-paragraph">RESET</p>
     <button 
     onclick="
     score.wins = 0;
@@ -24,8 +69,13 @@
     updateScore();
     "
     
-    class="reset-button">Reset</button>
+    class="reset-button"><img src="pics/GCButton.jpg" class="gameCube-button"></button>
+    </div>
 
+    <div class="footer">
+      <p>Made by <strong>SerTou96</strong></p>
+    </div>
+  </div>
     <script src="rps2.js"></script>
   </body>
 </html>
