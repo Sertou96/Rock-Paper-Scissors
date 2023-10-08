@@ -79,7 +79,7 @@ function getWinner(playerChoice) {
   localStorage.setItem('score', JSON.stringify(score));
 
 
-  document.querySelector('.result-text').innerHTML = `You picked: <img src="/pics/${playerChoice}.png" class="move-result-picture"> , Computer picked: <img src="/pics/${computerMove}.png" class="move-result-picture">,  ${result}.`;
+  document.querySelector('.result-text').innerHTML = `You picked: <img src="/pics/${playerChoice}.png" class="move-result-picture"> Computer picked: <img src="/pics/${computerMove}.png" class="move-result-picture"> ${result}`;
 
   updateScore();
 
